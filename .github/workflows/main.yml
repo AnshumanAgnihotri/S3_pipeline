@@ -21,11 +21,6 @@ jobs:
           aws-s3-bukcet: ${{secrets.AWS_S3_BUCKET}}
           aws-region: us-east-1
 
-      - name: Install AWS CLI
-        run: |
-          sudo apt-get update && sudo apt-get install -y python3-pip
-          pip3 install awscli
-
       - name: Deploy code to S3
         run: |
           aws s3 sync . s3://build11/
